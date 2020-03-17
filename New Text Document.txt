@@ -1,0 +1,56 @@
+int LED = D7;
+int unit = 100;
+void setup() {
+    pinMode(LED, OUTPUT);
+}
+//blinks a dot
+void dot(){
+    digitalWrite(LED, HIGH);
+    delay(unit);
+    digitalWrite(LED, LOW);
+    delay(unit);
+}
+//blinks a dash
+void dash(){
+    digitalWrite(LED, HIGH);
+    delay(unit*3);
+    digitalWrite(LED, LOW);
+    delay(unit);
+    
+}
+//longer break for a new word(3 units)
+void new_char(){
+    delay(unit*2);
+}
+//longer break for a new word(7 units)
+void new_word(){
+    delay(unit*6);
+}
+
+void loop() {
+    //A(.-)
+    dot();
+    dash();
+    
+    new_char();
+    
+    //S(...)
+    dot();
+    dot();
+    dot();
+    
+    new_char();
+    
+    //I(..)
+    
+    dot();
+    dot();
+    
+    new_char();
+    
+    //M(--)
+    dash();
+    dash();
+    
+    new_word();
+}
